@@ -1,1 +1,44 @@
-/* You can add global styles to this file, and also import other style files */
+/*
+ * Fonts
+*/
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+/*
+ * Principal colors
+*/
+$colorPrincipal: #4680FF;
+
+$colorH1: #666666;
+$colorH2: #777777;
+$colorH3: #888888;
+$colorH4: #999999;
+
+$colorP: #999999;
+
+$colorIcon: #BDC3C7;
+
+/*
+ * Principal size text
+*/
+
+h1{ color: $colorH1; font-family: 'Roboto'; }
+h2{ color: $colorH2; font-family: 'Roboto'; }
+h3{ color: $colorH3; font-family: 'Roboto'; }
+h4{ color: $colorH4; font-family: 'Roboto'; }
+
+/*
+ * Shadows
+*/
+@mixin box-shadow-light () {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16);
+    border: 1px solid rgba(0, 0, 0, .1);
+}
+
+@mixin box-shadow-dark () { 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .32);
+    border: 1px solid rgba(0, 0, 0, .1);
+}
+
+@mixin box-shadow-blue () {
+    box-shadow: 0 3px 6px rgba(70, 128, 255, .50);
+}

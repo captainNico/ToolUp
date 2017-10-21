@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+html{
+    min-height: 100% !important;
+    height: 100%;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    background-color: #EFF0F4;
+    height: 100%;
+
+    font-family: 'Roboto';
+}

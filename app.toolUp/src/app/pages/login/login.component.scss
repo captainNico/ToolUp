@@ -1,0 +1,120 @@
+@import '../../../styles.scss';
+
+#nav{
+    height: 80px;
+}
+
+#nav-linkLeft,
+#nav-linkRight{
+    color: $colorPrincipal;
+    font-family: 'Roboto';
+    text-decoration: none;
+}
+
+#nav-linkLeft{
+    margin: 11px 0 0 30px;
+    float: left;
+    font-size: 30px;
+}
+
+#nav-linkRight{
+    margin: 22px 24px 0 0;
+    float: right;
+}
+
+#main{
+    max-width: 860px;
+    height: 500px;
+    margin: 10% auto;
+
+    background-color: #fff;
+    border-radius: 5px;
+    @include box-shadow-light();
+}
+
+#main-left{
+    max-width: 860-560-60px;
+    height: 100%;
+    float: left;
+    padding: 30px;
+
+    // background-color: skyblue;
+}
+
+#main-left-title{
+    margin-top: 100px;
+    color: $colorPrincipal;
+    font-size: 26px;
+}
+
+#main-left-form{
+
+    input{
+        width: 220px;
+        height: 26px;
+        padding: 0 0 0 25px;
+        margin-bottom: 15px;
+
+        border-radius: 2px;
+        border: 1px solid $colorIcon;
+
+        font-size: 14px;
+    }
+
+    #form-username{
+        background: url('../../../assets/login/input-username.png') no-repeat 5px center;
+    }
+
+    #form-password{
+        background: url('../../../assets/login/input-password.png') no-repeat 5px center;
+    }
+    
+    #form-linkForget{
+        margin-top: 6px;
+        float: left;
+        font-family: 'Roboto';
+        color: $colorIcon;
+        font-size: 12px;
+        text-decoration: none;
+    }
+
+    #form-submit{
+        width: 80px;
+        height: 28px;
+        float: right;
+        background-color: $colorPrincipal;
+        border: none;
+        border-radius: 2px;
+        @include box-shadow-blue();
+        font-size: 12px;
+        color: #fff;
+        cursor: pointer;
+    }
+}
+
+#main-right{
+    max-width: 510px;
+    height: 100%;
+    float: right;
+    padding: 0 0 0 50px;
+
+    background: url('../../../assets/login/slide-work-01.jpg') no-repeat center center;
+    background-size: cover;
+
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    // background-color: orange;
+}
+
+#main-right-title{
+    margin: 265px 0 0 0;
+    padding: 0;
+    color: #fff;
+    font-size: 40px;
+}
+
+#main-right-text{
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
