@@ -1,0 +1,53 @@
+@import '../../../styles.scss';
+
+#main{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: $colorPrincipal;
+    background-image: url("../../../assets/home-bottom.png");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+}
+
+#navigation{
+    height: 80px;
+    font-family: 'Roboto';
+
+    #logo{
+        float: left;
+        margin-left: 34px;
+        margin-top: 11px;
+        font-size: 28px;
+        color: #fff;
+    }
+
+    #link a{
+        float: right;
+        margin-right: 20px;
+        margin-top: 22px;
+        font-size: 18px;
+        color: #fff;
+        text-decoration: none;
+    }
+}
+
+#centerTitle-h1,
+#centerTitle-h2{
+    margin: 180px auto 0;
+    padding: 0;
+    text-align: center;
+    color: #fff;
+    font-size: 32px;
+}
+
+#centerTitle-h1{
+    margin: auto;
+    font-size: 66px;
+}
+
+#browser{
+    display: block;
+    margin: 180px auto;
+}
