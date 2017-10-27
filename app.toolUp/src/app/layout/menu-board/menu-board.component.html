@@ -1,0 +1,90 @@
+<nav id="nav" *ngIf="displayMenu">
+    
+    <div id="header">
+        <h1 id="header-title">ToolUp <span id="version">v1</span></h1>
+    </div>
+    
+    <h4 id="title-section">All your boards</h4>
+
+    <div id="board">
+
+        <!-- <ul class="board-list {{ subMenu[key].hasActive }}" *ngFor="let key of arrayOfKeys">
+            <li class="board-options visual" (click)="displaySubmenu(key)">
+                <span class="board-icon pink {{ subMenu[key].color }} {{ subMenu[key].visibility }}"></span>
+                <h4 class="board-title">{{ subMenu[key].title }}</h4>
+                <span class="board-more"></span>
+            </li>
+            
+            <div class="more-options" *ngIf="subMenu[key].moreOption">
+                <li class="board-options active"><a href="#">Board</a></li>
+                <li class="board-options"><a href="#">Team</a></li>
+                <li class="board-options"><a href="#">Settings</a></li>
+            </div>
+        </ul> -->
+
+        <ul class="board-list {{ boards[key].hasActive }}" *ngFor="let key of arrayOfKeys">
+            <li class="board-options visual" (click)="displaySubmenu(key)">
+                <span class="board-icon pink {{ boards[key].color }} {{ boards[key].visibility }}"></span>
+                <h4 class="board-title">{{ boards[key].name }}</h4>
+                <span class="board-more"></span>
+            </li>
+            
+            <div class="more-options" *ngIf="boards[key].moreOption">
+                <li class="board-options active"><a routerLink="/board/{{boards[key].tokenID}}">Board</a></li>
+                <li class="board-options"><a href="#">Team</a></li>
+                <li class="board-options"><a href="#">Settings</a></li>
+            </div>
+        </ul>
+        
+
+        <!-- <ul class="board-list active">
+            <li class="board-options visual">
+                <span class="board-icon pink private"></span>
+                <h4 class="board-title">Planner</h4>
+                <span class="board-more"></span>
+            </li>
+            
+            <div class="more-options">
+                <li class="board-options active"><a href="#">Board</a></li>
+                <li class="board-options"><a href="#">Team</a></li>
+                <li class="board-options"><a href="#">Settings</a></li>
+            </div>
+        </ul>
+
+        <ul class="board-list">
+            <li class="board-options visual">
+                <span class="board-icon yellow public"></span>
+                <h4 class="board-title">Planner</h4>
+                <span class="board-more"></span>
+            </li>
+            
+            <div class="more-options">
+                <li class="board-options"><a href="#">Board</a></li>
+                <li class="board-options"><a href="#">Team</a></li>
+                <li class="board-options"><a href="#">Settings</a></li>
+            </div>
+        </ul>
+
+        <ul class="board-list">
+            <li class="board-options visual">
+                <span class="board-icon green public"></span>
+                <h4 class="board-title">Planner</h4>
+                <span class="board-more"></span>
+            </li>
+            
+            <div class="more-options">
+                <li class="board-options"><a href="#">Board</a></li>
+                <li class="board-options"><a href="#">Team</a></li>
+                <li class="board-options"><a href="#">Settings</a></li>
+            </div>
+        </ul> -->
+    </div>
+
+     <!-- <div class="board">
+        <span class="board-icon"></span>
+        <h4 class="board-title">Planner</h4>
+        <span class="board-more"></span>
+    </div> -->
+</nav>
+
+<div id="overlay-nav" *ngIf="displayMenu" (click)="hideMenu()"></div>

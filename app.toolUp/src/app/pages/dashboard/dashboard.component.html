@@ -1,0 +1,13 @@
+<app-header></app-header>
+
+<h1 id="title-page">Dashboard</h1>
+
+<div id="container-boards">
+    
+    <div class="boards {{boards[key].color}}" *ngFor="let key of arrayOfKeys">
+        <h3 class="boards-title">{{boards[key].name}}</h3>
+        <a routerLink="/board/{{boards[key].tokenID}}" class="boards-link"></a>
+    </div>
+
+</div>
+<!-- <h1 *ngFor="let key of arrayOfKeys">{{boards[key].name}}</h1> -->

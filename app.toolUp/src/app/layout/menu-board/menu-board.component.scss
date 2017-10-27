@@ -1,0 +1,127 @@
+@import '../../../styles.scss';
+
+#nav{
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    width: 240px;
+    padding: 0 30px;
+    display: block;
+    background-color: #fff;
+    @include box-shadow-light();
+    border: none;
+    z-index: 1000;
+}
+
+#header{
+    position: absolute;
+    top: 0; left: 0;
+    width: 300px;
+    height: 120px;
+    padding-top: 60px;
+    
+    background-color: $colorPrincipal;
+}
+
+#header-title{
+    margin: 0;
+    display: block;
+    text-align: center;
+    font-size: 30px;
+    color: #fff;
+}
+
+#version{
+    position: relative;
+    top: 13px; left: -8px;
+    font-size: 14px;
+    font-weight: 100;
+}
+
+#title-section{
+    margin-top: 210px;
+    font-size: 14px;
+    font-weight: 100;
+    color: $colorIcon;
+}
+
+#board{
+    position: relative;
+    width: 240px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.board-list{
+    padding: 0;
+    list-style: none;
+}
+
+.board-options{
+    padding-left: 45px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: $colorH3;
+}
+
+.board-options a{ color: $colorH3; text-decoration: none; }
+.board-options a:hover{ text-decoration: underline; }
+
+.board-options.visual{ height: 28px; padding-left: 0px; font-weight: bold; }
+
+.board-icon{
+    width: 28px;
+    height: 28px;
+    float: left;
+    
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 5px;
+}
+
+.board-icon.pink{ background-color: $colorPink; }
+.board-icon.yellow{ background-color: $colorYellow; }
+.board-icon.green{ background-color: $colorGreen; }
+.board-icon.purple{ background-color: $colorPurple; }
+.board-icon.turquoise{ background-color: $colorTurquoise; }
+.board-icon.orange{ background-color: $colorOrange; }
+
+.board-icon.private{ background-image: url('../../../assets/layout/menu-board/board-lock.png'); }
+.board-icon.public{ background-image: url('../../../assets/layout/menu-board/board-eye.png'); }
+
+.board-title{
+    margin: 4px 0 4px 15px;
+    float: left;
+    color: $colorH2;
+
+    transition: color .3s;
+}
+
+.board:hover > .board-title{ color: $colorPrincipal; }
+
+.board-more{
+    width: 12px;
+    height: 8px;
+    margin: 10px 0;
+    float: right;
+    background: url('../../../assets/layout/menu-board/board-arrow.png') no-repeat center center;
+}
+
+.board-list.active > .board-options .board-title{
+    color: $colorPrincipal;
+}
+
+.board-options.active{
+    color: $colorPrincipal;
+}
+
+.more-options{
+    display: block;
+}
+
+#overlay-nav{
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background-color: rgba(0, 0, 0, .5);
+    display: block;
+    z-index: 999;
+}

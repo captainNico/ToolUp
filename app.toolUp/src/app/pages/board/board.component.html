@@ -1,0 +1,34 @@
+<app-header></app-header>
+
+<h1 id="title-page"><span class="title-board {{board_color}}">{{board_name}}</span> Board</h1>
+<div id="visibility"><span class="visibility-icon {{board_visibility}}"></span><span class="visibility-text">{{board_visibility}}</span></div>
+
+<div id="container-columns">
+    
+    <div class="columns" *ngFor="let keyColumn of arrayOfKeysColumns">        
+        
+        <h2 class="column-title"><span class="column-title-circle"></span>{{columns[keyColumn].name}}</h2>
+            
+        <div class="element-selected" *ngFor="let keyTask of arrayOfKeysTasks">
+            
+            <div class="task" *ngIf="tasks[keyTask].tokenID_column === columns[keyColumn].tokenID" (mousedown)="onMouseDown($event)">
+                
+                <h3 class="task-title" >{{tasks[keyTask].title}}</h3>
+
+                <p class="task-text">
+                    {{tasks[keyTask].text}}
+                </p>
+
+                <div class="task-color {{tasks[keyTask].color}}"></div>
+                <div class="task-more"></div>
+                
+                <div [attr.data-task-tokenID]="tasks[keyTask].tokenID"></div>
+            </div>
+
+        </div>
+
+        
+
+        <div [attr.data-column-tokenID]="columns[keyColumn].tokenID"></div>
+    </div>
+</div>

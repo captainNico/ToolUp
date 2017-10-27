@@ -23,9 +23,9 @@
 }
 
 #main{
-    width: 860px;
+    max-width: 860px;
     height: 500px;
-    margin: 10% auto;
+    margin: 5% auto;
 
     background-color: #fff;
     border-radius: 5px;
@@ -33,7 +33,7 @@
 }
 
 #main-left{
-    width: 860-560-60px;
+    max-width: 860-560-60px;
     height: 100%;
     float: left;
     padding: 30px;
@@ -121,4 +121,12 @@
     margin: 0;
     padding: 0;
     color: #fff;
+}
+
+@media screen and (max-width: 880px) {
+    #main{
+        width: 300px;
+        margin: auto
+    }
+    #main-right{display: none;}
 }
