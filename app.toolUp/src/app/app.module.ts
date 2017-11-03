@@ -19,6 +19,10 @@ import { HeaderComponent } from './layout/header/header.component';
 import { MenuBoardComponent } from './layout/menu-board/menu-board.component';
 import { BoardComponent } from './pages/board/board.component';
 
+// Componenent
+import { PopupNewColumnComponent } from './pages/board/popup-new-column/popup-new-column.component';
+import { PopupNewTaskComponent } from './pages/board/popup-new-task/popup-new-task.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +31,9 @@ import { BoardComponent } from './pages/board/board.component';
     DashboardComponent,
     HeaderComponent,
     MenuBoardComponent,
-    BoardComponent
+    BoardComponent,
+    PopupNewColumnComponent,
+    PopupNewTaskComponent
   ],
   imports: [
     BrowserModule,

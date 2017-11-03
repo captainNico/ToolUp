@@ -63,4 +63,26 @@ export class ApiService {
 
         return this.http.put(this.apiUrl + 'change-columnTask/', {tokenID_column: tokenID_column, tokenID_task: tokenID_task}, {headers: headers}).map(data => data.json());
     }
+
+    public new_column(name: string, tokenID_board, tokenID_user) {
+
+        console.log(tokenID_board);
+
+        let headers = new Headers({'Content-Type': 'application/json'});
+        let options = new RequestOptions({headers: headers});
+
+        return this.http.post(this.apiUrl + 'new-column', {name: name, tokenID_board: tokenID_board, tokenID_user: tokenID_user}, {headers: headers})
+        .map(data => data.json())
+        .catch(err => err);
+    }
+
+    public new_task(titleTask: string, textTask: string, imgTask: string, tokenID_column: string, tokenID_board: string, tokenID_user: string) {
+
+        let headers = new Headers({'Content-Type': 'application/json'});
+        let options = new RequestOptions({headers: headers});
+
+        return this.http.post(this.apiUrl + 'new-task', {titleTask: titleTask, textTask: textTask, imgTask: imgTask, tokenID_column: tokenID_column, tokenID_board: tokenID_board, tokenID_user: tokenID_user}, {headers: headers})
+        .map(data => data.json())
+        .catch(err => err);
+    }
 }

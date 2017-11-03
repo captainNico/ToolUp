@@ -1,8 +1,35 @@
 @import '../../../styles.scss';
 
+#header{
+    padding: 130px 120px 0 120px;
+}
+
+#header-left{
+    float: left;
+}
+
+#header-right{
+    float: right;
+}
+
+#header-more{
+    width: 35px;
+    height: 35px;
+
+    border: none;
+    background-color: $colorPrincipal;
+    border-radius: 5px;
+
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+
+    @include box-shadow-blue();
+}
+
 #title-page{
     margin: 0;
-    padding: 130px 0 0 120px;
+    // 
     margin-bottom: 38px;
     font-size: 28px;
     color: $colorH1;
@@ -29,7 +56,6 @@
 
 #visibility{
     margin-top: -25px;
-    margin-left: 120px;
     margin-bottom: 80px;
 }
 
@@ -56,15 +82,11 @@
 }
 
 #container-columns{
-    width: auto;
-    min-height: 300px;
-    margin-left: 120px;
+    min-width: 100rem;
+    padding: 0 0 0 120px;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
     align-items: flex-start;
-
-    // background-color: skyblue;
 }
 
 .columns{
@@ -92,6 +114,19 @@
     margin: 0 0 35px 0;
 }
 
+.button-add-task{
+    width: 360px;
+    height: 40px;
+    margin-top: 70px;
+
+    font-size: 16px;
+    color: $colorIcon;
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+    outline: none;
+}
+
 .task{
     position: relative;
     width: 360-40-4px;
@@ -105,12 +140,16 @@
 
     @include box-shadow-light();
     border-color: rgba(0, 0, 0, .15);
+}
 
-    cursor: move;
+.task-img{
+    max-width: 360-40-4px;
+    max-height: 180px;
+    margin-bottom: 25px;
 }
 
 .task-title{
-    margin: 0 0 10px 0;
+    margin: 0 0 5px 0;
     font-size: 18px;
 }
 
@@ -127,6 +166,12 @@
     
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
+
+    transition: width .3s;
+}
+
+.task-color:hover{
+    width: 200px;
 }
 
 .task-color.pink{ background-color: $colorPink; }
@@ -138,11 +183,17 @@
 
 .task-more{
     position: absolute;
-    top: 10px; right: 15px;
+    top: 10px; right: 8px;
     width: 4px;
     height: 15px;
     
     background: url('../../../assets/board/board-task-more.png') no-repeat center center;
 
     cursor: pointer;
+}
+
+.overlay-task{
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 8px;
+    cursor: move;
 }

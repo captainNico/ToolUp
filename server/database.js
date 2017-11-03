@@ -3,14 +3,15 @@ const mysql = require('mysql');
 // Data for connection DB
 var connectionDB = mysql.createConnection({
     host: 'localhost',
+    port: 3306,
     user: 'root',
-    password: '',
+    password: 'root',
     database: 'toolUp'
 });
 
 // Connection to database
 connectionDB.connect(function (err) {
-    if (err) {
+    if (err) {  
         console.log('ERROR CONNECT DATABASE');
         return false;
     }
@@ -119,5 +120,23 @@ exports.putColumnTask = function (tokenID_column, tokenID_task, callback) {
         
         // if (err) throw err;
         callback({return: true});
+    });
+}
+
+exports.newColumn = function (name, tokenID, tokenID_board, tokenID_user, callback) {
+    
+    connectionDB.query('INSERT INTO Columns(name, creation_date, tokenID, tokenID_board, tokenID_user) VALUES (?, CURDATE(), ?, ?, ?)', [name, tokenID, tokenID_board, tokenID_user], function (err, data) {
+        
+        // if (err) throw err;
+        callback({created: true});
+    });
+}
+
+exports.newTask = function (titleTask, textTask, imgTask, tokenID, tokenID_column, tokenID_board, tokenID_user, callback) {
+    
+    connectionDB.query('INSERT INTO Tasks(title, text, img, tokenID, tokenID_column, tokenID_board, tokenID_user) VALUES (?, ?, ?, ?, ?, ?, ?)', [titleTask, textTask, imgTask, tokenID, tokenID_column, tokenID_board, tokenID_user], function (err, data) {
+        
+        // if (err) throw err;
+        callback({created: true});
     });
 }

@@ -55,6 +55,11 @@ export class BoardComponent implements OnInit {
 
     statusTask: boolean = false;
 
+    displayPopupNewColumn: boolean = false;
+
+    displayPopupNewTask: boolean = false;
+    tokenID_column: string = "";
+
     constructor(private router: Router, private routeActive: ActivatedRoute, private api: ApiService) { }
 
     ngOnInit() {
@@ -132,7 +137,7 @@ export class BoardComponent implements OnInit {
     
     onMouseDown(event) {
 
-        this.taskSelected = event.target;
+        this.taskSelected = event.target.parentNode;
 
         let self = this;
 
@@ -200,6 +205,7 @@ export class BoardComponent implements OnInit {
             self.taskSelected.style.position = "absolute";
             self.taskSelected.style.top = mouseMoveY - (elementClientY) + 'px';
             self.taskSelected.style.left = mouseMoveX - (elementClientX) + 'px';
+            self.taskSelected.style.opacity = '0.7';
         }
 
 
@@ -216,7 +222,7 @@ export class BoardComponent implements OnInit {
             document.removeEventListener('mousemove', moveTask, false);
 
             // If the element selected is not task
-            if (e.target.className != 'task') {
+            if (e.target.parentNode.className != 'task') {
                 self.statusTask = false;
                 return;
             }
@@ -235,13 +241,14 @@ export class BoardComponent implements OnInit {
                 self.taskSelected.style.position = 'relative';
                 self.taskSelected.style.top = 'auto';
                 self.taskSelected.style.left = 'auto';
+                self.taskSelected.style.opacity = '1';
                 return;
 
                 // console.log(positionOriginTask.top);
             }
 
             let task = self.taskSelected;
-            let tokenID_task = self.taskSelected.lastElementChild.getAttribute('data-task-tokenID');
+            let tokenID_task = e.target.getAttribute('data-task-tokenID');
 
             // console.log(self.positionsColumns.length);
 
@@ -255,7 +262,7 @@ export class BoardComponent implements OnInit {
 
                     // console.log(self.positionsColumns[i].numColumnStart, i);
 
-                    let tokenID_columnSelected = columnSelected.lastElementChild.getAttribute('data-column-tokenID');
+                    let tokenID_columnSelected = columnSelected.lastElementChild.previousElementSibling.getAttribute('data-column-tokenID');
 
                     if (tokenID_columnSelected != null) {
 
@@ -267,11 +274,12 @@ export class BoardComponent implements OnInit {
                         );
                     }
 
-                    columnSelected.appendChild(task.parentNode);
+                    columnSelected.insertBefore(task.parentNode, columnSelected.lastElementChild);
 
                     task.style.position = 'relative';
                     task.style.top = 'auto';
-                    task.style.left = '0px';
+                    task.style.left = 'auto';
+                    task.style.opacity = '1';
                 }
             }
 
@@ -281,5 +289,16 @@ export class BoardComponent implements OnInit {
             this.isDown = false;
 
         }, false);
+    }
+
+    newPopupColumn() {
+        this.displayPopupNewColumn = true;
+    }
+
+    popupNewTask (tokenID_column: string) {
+
+        this.displayPopupNewTask = true;
+
+        this.tokenID_column = tokenID_column;
     }
 }

@@ -105,6 +105,35 @@ routerApi.put('/change-columnTask', bodyParser.json(), function (req, res, next)
     });
 });
 
+routerApi.post('/new-column', bodyParser.json(), function (req, res, next) {
+
+    var name = req.body.name,
+        tokenID = crypto.createHash('md5').update(req.body.name + new Date().getTime()).digest("hex"),
+        tokenID_board = req.body.tokenID_board,
+        tokenID_user = req.body.tokenID_user;
+        
+    db.newColumn(name, tokenID, tokenID_board, tokenID_user, function (response) {
+        // res.json(reponse);
+        res.json(response);
+    });
+});
+
+routerApi.post('/new-task', bodyParser.json(), function (req, res, next) {
+    
+    var titleTask = req.body.titleTask,
+        textTask = req.body.textTask,
+        imgTask = req.body.imgTask,
+        tokenID = crypto.createHash('md5').update(req.body.titleTask + new Date().getTime()).digest("hex"),
+        tokenID_column = req.body.tokenID_column,
+        tokenID_board = req.body.tokenID_board,
+        tokenID_user = req.body.tokenID_user;
+        
+    db.newTask(titleTask, textTask, imgTask, tokenID, tokenID_column, tokenID_board, tokenID_user, function (response) {
+        // res.json(reponse);
+        res.json(response);
+    });
+});
+
 // For error 404
 routerApi.get('*', function (req, res) {
     res.json({error: '404'});

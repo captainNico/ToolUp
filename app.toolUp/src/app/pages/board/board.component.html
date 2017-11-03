@@ -1,7 +1,15 @@
 <app-header></app-header>
 
-<h1 id="title-page"><span class="title-board {{board_color}}">{{board_name}}</span> Board</h1>
-<div id="visibility"><span class="visibility-icon {{board_visibility}}"></span><span class="visibility-text">{{board_visibility}}</span></div>
+<header id="header">
+    <div id="header-left">
+        <h1 id="title-page"><span class="title-board {{board_color}}">{{board_name}}</span> Board</h1>
+        <div id="visibility"><span class="visibility-icon {{board_visibility}}"></span><span class="visibility-text">{{board_visibility}}</span></div>
+    </div>
+
+    <div id="header-right">
+        <button id="header-more" title="New column" (click)="newPopupColumn()">+</button>
+    </div>    
+</header>
 
 <div id="container-columns">
     
@@ -9,9 +17,11 @@
         
         <h2 class="column-title"><span class="column-title-circle"></span>{{columns[keyColumn].name}}</h2>
             
-        <div class="element-selected" *ngFor="let keyTask of arrayOfKeysTasks">
+        <div *ngFor="let keyTask of arrayOfKeysTasks">
             
-            <div class="task" *ngIf="tasks[keyTask].tokenID_column === columns[keyColumn].tokenID" (mousedown)="onMouseDown($event)">
+            <div class="task" *ngIf="tasks[keyTask].tokenID_column === columns[keyColumn].tokenID">
+
+                <img *ngIf="tasks[keyTask].img.length > 0" src="{{tasks[keyTask].img}}" class="task-img">
                 
                 <h3 class="task-title" >{{tasks[keyTask].title}}</h3>
 
@@ -22,13 +32,16 @@
                 <div class="task-color {{tasks[keyTask].color}}"></div>
                 <div class="task-more"></div>
                 
-                <div [attr.data-task-tokenID]="tasks[keyTask].tokenID"></div>
+                <div class="overlay-task" [attr.data-task-tokenID]="tasks[keyTask].tokenID" (mousedown)="onMouseDown($event)"></div>
             </div>
 
         </div>
 
-        
-
         <div [attr.data-column-tokenID]="columns[keyColumn].tokenID"></div>
+        <button class="button-add-task" (click)="popupNewTask(columns[keyColumn].tokenID)">Add task</button>
     </div>
 </div>
+
+<app-popup-new-task [tokenID_column]="tokenID_column" *ngIf="displayPopupNewTask"></app-popup-new-task>
+
+<app-popup-new-column *ngIf="displayPopupNewColumn"></app-popup-new-column>
